@@ -4,34 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puma</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <header>
-        <h1>Our Puma Vacation</h1>
-    </header>
-    <section>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="./table.html">Table</a></li>
-                <li><a href="./about.html">About</a></li>
-            </ul>
-        </nav>
-        <video width="420" height="240" controls>
-            <source scr="myMovie.mp4" type="video/mp4">
-            Your browser does not support the video element
-        </video>
-        <br>
-        <audio controls>
-            <source src="mySound.mp3" type="audio/mpeg">
-            Your browser does not support the video element
-        </audio>
-        <br>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/pZ7WLQbLDn8?si=FbwkZNLPPUL_UaBe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </section>
-    <footer>
-        <p>Copyright 2026 Bayani San Diego</p>
-    </footer>
-    
+    <div class="container">
+        <header>
+            <h1>Our Puma Vacation</h1>
+        </header>
+        <section>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                     <a class="navbar-brand" href="#">PumaNav</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                     </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" class="nav-link active" aria-current="page" href="#">Home</a> href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="./table.html">Table</a></li>
+                            <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <video width="420" height="240" controls>
+                <source scr="myMovie.mp4" type="video/mp4">
+                Your browser does not support the video element
+            </video>
+            <br>
+            <audio controls>
+                <source src="mySound.mp3" type="audio/mpeg">
+                Your browser does not support the video element
+            </audio>
+            <br>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/pZ7WLQbLDn8?si=FbwkZNLPPUL_UaBe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+        <footer>
+            <p>Copyright 2026 Bayani San Diego</p>
+        </footer>
+    </div>
 </body>
 </html>
