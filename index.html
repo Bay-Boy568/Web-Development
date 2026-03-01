@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puma</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+        function videoFunction(){
+            document.getElementById("myComment").innerHTML += "A great vacation video"
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Our Puma Vacation</h1>
         </header>
-        <section>
+        <main>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
                      <a class="navbar-brand" href="#">PumaNav</a>
@@ -20,17 +26,19 @@
                      </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" class="nav-link active" aria-current="page" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="./table.html">Table</a></li>
                             <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            <video width="420" height="240" controls>
+            <video width="420" height="240" controls onloadstart="videoFunction()">
                 <source scr="myMovie.mp4" type="video/mp4">
                 Your browser does not support the video element
             </video>
+            <p id="myComment">My Personal Video: </p>
+
             <br>
             <audio controls>
                 <source src="mySound.mp3" type="audio/mpeg">
@@ -38,7 +46,7 @@
             </audio>
             <br>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/pZ7WLQbLDn8?si=FbwkZNLPPUL_UaBe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </section>
+        </main>
         <footer>
             <p>Copyright 2026 Bayani San Diego</p>
         </footer>
