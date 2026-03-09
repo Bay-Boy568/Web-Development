@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
+    <script scrc="/js/scripts.js"></script>
 </head>
 <body>
     <div class="container">
@@ -19,7 +19,7 @@
                 <input type="text" name="myName" id="myName" class="form-control">
             </div>
             <div class="mb-3">
-                <label for="myEmail" class="form-label">Email:</label>
+                <label id="emailBox" onmouseover="emailMessage()" onmouseout="blankMessage()" for="myEmail" class="form-label">Email:</label>
                 <input type="text" name="myEmail" id="myEmail" class="form-control">
             </div>
             Choose the browsers you use<br>
