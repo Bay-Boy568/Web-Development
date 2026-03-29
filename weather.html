@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Table Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 24px;
+    }
+
+    h1 {
+      margin-bottom: 12px;
+    }
+
+    button {
+      margin-bottom: 16px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #f4f4f4;
+    }
+
+    #status {
+      margin: 12px 0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Weather Forecast</h1>
+  <button id="loadWeatherBtn">Load Weather</button>
+  <div id="status"></div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Temperature</th>
+        <th>Humidity</th>
+        <th>Wind Speed</th>
+      </tr>
+    </thead>
+    <tbody id="weatherTableBody"></tbody>
+  </table>
+
+  <script>
+    class WeatherData {
+      constructor(latitude, longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.rows = [];
+      }
+
+      // Store API data inside the class
+      setFromApiResponse(apiData) {
+        this.rows = [];
+
+        const times = apiData.hourly.time;
+        const temperatures = apiData.hourly.temperature_2m;
+        const humidities = apiData.hourly.relative_humidity_2m;
+        const windSpeeds = apiData.hourly.wind_speed_10m;
+
+        // Store only the first 8 hourly entries
+        for (let i = 0; i < 8; i++) {
+          this.rows.push({
+            time: times[i],
+            temperature: temperatures[i],
+            humidity: humidities[i],
+            windSpeed: windSpeeds[i]
+          });
+        }
+      }
+
+      // Render the stored class data into the HTML table
+      renderTable(tableBodyElement) {
+        tableBodyElement.innerHTML = "";
+
+        this.rows.forEach(row => {
+          const tr = document.createElement("tr");
+
+          tr.innerHTML = `
+            <td>${row.time}</td>
+            <td>${row.temperature} °C</td>
+            <td>${row.humidity} %</td>
+            <td>${row.windSpeed} km/h</td>
+          `;
+
+          tableBodyElement.appendChild(tr);
+        });
+      }
+    }
+
+    async function loadWeather() {
+      const status = document.getElementById("status");
+      const tableBody = document.getElementById("weatherTableBody");
+
+      status.textContent = "Loading weather...";
+
+      // Example: Orlando, FL
+      const latitude = 28.53834;
+      const longitude = -81.37924;
+
+      // Open-Meteo supports current and hourly fields like these
+      const url =
+        `https://api.open-meteo.com/v1/forecast` +
+        `?latitude=${latitude}` +
+        `&longitude=${longitude}` +
+        `&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m` +
+        `&timezone=auto`;
+
+      try {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        const weather = new WeatherData(latitude, longitude);
+        weather.setFromApiResponse(data);
+        weather.renderTable(tableBody);
+
+        status.textContent = "Weather loaded successfully.";
+      } catch (error) {
+        console.error(error);
+        status.textContent = "Failed to load weather data.";
+      }
+    }
+
+    document
+      .getElementById("loadWeatherBtn")
+      .addEventListener("click", loadWeather);
+  </script>
+</body>
+</html>
