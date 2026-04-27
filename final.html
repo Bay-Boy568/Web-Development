@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To-Do</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Time Management Tool</h1>
+    </header>
+    <div class="container">
+        <div class="main-content">
+            <section id="timer-section">
+                <button id="toggle-sidebar">Focus</button>
+                <h2>Pomodoro Timer</h2>
+                <label for="timer-input">Duration: <span id="timer-value">25 min</span></label>
+                <input type="range" id="timer-input" min="1" max="720" value="25">
+                <div id="timer-display">25:00</div>
+                <button id="start-timer-btn">Start</button>
+                <button id="pause-timer-btn">Pause</button>
+                <button id="reset-timer-btn">Reset</button>
+                <section id="music-section">              
+                 <h2>My favorite classics</h2>
+                     <div style="display: flex; align-items: center; gap: 10px;">
+                        <audio controls>
+                        <source src="favClassics.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                        </audio>
+                        <details>
+                            <summary style="cursor: pointer; color: white; background-color: transparent; padding: 0;">Audio track guide</summary>
+                            <div style="margin-top: 10px; padding: 10px; background-color: transparent; border-left: 3px solid #007acc; color: white;">
+                                <p><strong>Track List:</strong></p>
+                                <ul style="margin: 10px 0; padding-left: 20px;">
+                                    <li>0:00 Toshifumi Hinata - Reflections</li>
+                                    <li>2:35 Erik Satie - Gnossienne No.1</li>
+                                    <li>6:16 Erik Satie - Gymnopédie No.1</li>
+                                    <li>11:17 Paul de Senneville - Mariage d'Amour</li>
+                                    <li>16:30 Chopin - Nocturne op.9 No.2</li>
+                                    <li>20:58 Austin Farwell - New Home</li>
+                                    <li>23:52 Evgeny Grinko - Valse</li>
+                                </ul>
+                            </div>
+                        </details>
+                     </div>
+                </section>
+            </section>
+            <section id="selected-date-section">
+                <h2>Tasks for <span id="selected-date-display">Selected Date</span></h2>
+                <div id="selected-date-tasks"></div>
+            </section>
+        </div>
+        <div class="sidebar">
+            <section id="todo-section">
+                <h2>To-Do List</h2>
+                <input type="text" id="task-input" placeholder="Add a new task">
+                <input type="number" id="task-time" placeholder="Est. minutes" min="0">
+                <input type="date" id="task-date" placeholder="Due date">
+                <button id="add-task-btn">Add Task</button>
+                <div id="total-time">Total estimated time: 0 minutes</div>
+                <ul id="task-list"></ul>
+            </section>
+            <section id="calendar-section">
+                <h2>Calendar</h2>
+                <div id="calendar-header">
+                    <button id="prev-month">❮</button>
+                    <h3 id="calendar-title"></h3>
+                    <button id="next-month">❯</button>
+                </div>
+                <div id="calendar-weekdays">
+                    <div class="weekday">Sun</div>
+                    <div class="weekday">Mon</div>
+                    <div class="weekday">Tue</div>
+                    <div class="weekday">Wed</div>
+                    <div class="weekday">Thu</div>
+                    <div class="weekday">Fri</div>
+                    <div class="weekday">Sat</div>
+                </div>
+                <div id="calendar-days"></div>
+            </section>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
