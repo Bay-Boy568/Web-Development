@@ -1,0 +1,234 @@
+body {
+    font-family: Cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333333;
+    color: #333;
+}
+
+header {
+    background-color: #4caf99;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+}
+
+#toggle-sidebar {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background-color: #45a049;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.main-content {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.sidebar {
+    width: 40%;
+    transition: width 0.3s;
+}
+
+.sidebar.collapsed {
+    width: 0;
+    overflow: hidden;
+}
+
+section {
+    background-color: #444444;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #ffffff;
+}
+
+#timer-section {
+    position: relative;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+#task-input {
+    width: 60%;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+#task-time {
+    width: 20%;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: #4caf99;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4caf99;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 0.5rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+#timer-input {
+    width: 100%;
+    margin: 1rem 0;
+}
+
+#timer-display {
+    font-size: 2rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+
+iframe {
+    display: block;
+    margin: 1rem auto;
+}
+
+#calendar-section {
+    width: 100%;
+}
+
+#calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#calendar-header button {
+    padding: 0.25rem 0.75rem;
+    font-size: 1rem;
+}
+
+#calendar-title {
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
+#calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.weekday {
+    text-align: center;
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
+#calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    grid-auto-rows: minmax(45px, 1fr);
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    background-color: #555555;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.task-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #ff6b6b;
+    margin-top: 2px;
+}
+
+.calendar-day:hover {
+    background-color: #4caf99;
+}
+
+.calendar-day.other-month {
+    color: #888;
+    background-color: #3d3d3d;
+}
+
+.calendar-day.today {
+    background-color: #4caf99;
+    font-weight: bold;
+}
+
+#selected-date-section {
+    width: 97%;
+}
+
+.selected-date-task {
+    padding: 1rem;
+    background-color: #555555;
+    border-left: 4px solid #4caf99;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.selected-date-task .task-name {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.selected-date-task .task-details {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    display: flex;
+    gap: 1rem;
+}
+
+#selected-date-tasks:empty {
+    padding: 1rem;
+    text-align: center;
+    color: #888;
+}
